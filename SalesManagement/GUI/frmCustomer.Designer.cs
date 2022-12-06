@@ -47,6 +47,9 @@
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gvCustomer = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.radAdmin = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.radEmployee = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvCustomer)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +57,9 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(81)))));
+            this.guna2Panel1.Controls.Add(this.radAdmin);
+            this.guna2Panel1.Controls.Add(this.radEmployee);
+            this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.txtId);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.txtSearch);
@@ -69,9 +75,11 @@
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(936, 225);
+            this.guna2Panel1.Size = new System.Drawing.Size(1248, 348);
             this.guna2Panel1.TabIndex = 1;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // txtId
             // 
@@ -91,13 +99,13 @@
             this.txtId.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtId.ForeColor = System.Drawing.Color.White;
             this.txtId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtId.Location = new System.Drawing.Point(144, 38);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Location = new System.Drawing.Point(192, 47);
+            this.txtId.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtId.Name = "txtId";
             this.txtId.PasswordChar = '\0';
             this.txtId.PlaceholderText = "";
             this.txtId.SelectedText = "";
-            this.txtId.Size = new System.Drawing.Size(252, 36);
+            this.txtId.Size = new System.Drawing.Size(336, 44);
             this.txtId.TabIndex = 0;
             // 
             // label2
@@ -106,9 +114,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(78, 46);
+            this.label2.Location = new System.Drawing.Point(104, 57);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 21);
+            this.label2.Size = new System.Drawing.Size(75, 28);
             this.label2.TabIndex = 9;
             this.label2.Text = "Mã KH:";
             // 
@@ -129,13 +138,13 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtSearch.ForeColor = System.Drawing.Color.White;
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(668, 168);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Location = new System.Drawing.Point(889, 266);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Nhập tên KH để tìm kiếm";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(252, 36);
+            this.txtSearch.Size = new System.Drawing.Size(336, 44);
             this.txtSearch.TabIndex = 4;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -153,9 +162,10 @@
             this.btnInsert.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnInsert.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnInsert.ForeColor = System.Drawing.Color.White;
-            this.btnInsert.Location = new System.Drawing.Point(16, 164);
+            this.btnInsert.Location = new System.Drawing.Point(19, 261);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(135, 45);
+            this.btnInsert.Size = new System.Drawing.Size(180, 55);
             this.btnInsert.TabIndex = 0;
             this.btnInsert.Text = "Thêm";
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
@@ -173,9 +183,10 @@
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(505, 164);
+            this.btnRefresh.Location = new System.Drawing.Point(671, 261);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(135, 45);
+            this.btnRefresh.Size = new System.Drawing.Size(180, 55);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -193,9 +204,10 @@
             this.btnUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(179, 164);
+            this.btnUpdate.Location = new System.Drawing.Point(237, 261);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(135, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(180, 55);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Sửa";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -213,9 +225,10 @@
             this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(342, 164);
+            this.btnDelete.Location = new System.Drawing.Point(454, 261);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(135, 45);
+            this.btnDelete.Size = new System.Drawing.Size(180, 55);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xoá";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -237,13 +250,13 @@
             this.txtPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtPhoneNumber.ForeColor = System.Drawing.Color.White;
             this.txtPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhoneNumber.Location = new System.Drawing.Point(563, 100);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(751, 123);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.PasswordChar = '\0';
             this.txtPhoneNumber.PlaceholderText = "";
             this.txtPhoneNumber.SelectedText = "";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(252, 36);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(336, 44);
             this.txtPhoneNumber.TabIndex = 2;
             // 
             // label4
@@ -252,11 +265,12 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(455, 108);
+            this.label4.Location = new System.Drawing.Point(607, 133);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 21);
+            this.label4.Size = new System.Drawing.Size(113, 28);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Số điện thoại:";
+            this.label4.Text = "Mã số thuế:";
             // 
             // txtAddress
             // 
@@ -275,13 +289,13 @@
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtAddress.ForeColor = System.Drawing.Color.White;
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAddress.Location = new System.Drawing.Point(563, 38);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress.Location = new System.Drawing.Point(751, 47);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(252, 36);
+            this.txtAddress.Size = new System.Drawing.Size(336, 44);
             this.txtAddress.TabIndex = 1;
             // 
             // label3
@@ -290,9 +304,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(455, 46);
+            this.label3.Location = new System.Drawing.Point(607, 57);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 21);
+            this.label3.Size = new System.Drawing.Size(75, 28);
             this.label3.TabIndex = 5;
             this.label3.Text = "Địa chỉ:";
             // 
@@ -313,13 +328,13 @@
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtName.ForeColor = System.Drawing.Color.White;
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Location = new System.Drawing.Point(144, 100);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(192, 123);
+            this.txtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(252, 36);
+            this.txtName.Size = new System.Drawing.Size(336, 44);
             this.txtName.TabIndex = 0;
             // 
             // label1
@@ -328,9 +343,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(78, 108);
+            this.label1.Location = new System.Drawing.Point(104, 133);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 21);
+            this.label1.Size = new System.Drawing.Size(75, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ tên:";
             // 
@@ -365,13 +381,15 @@
             this.gvCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvCustomer.EnableHeadersVisualStyles = false;
             this.gvCustomer.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gvCustomer.Location = new System.Drawing.Point(0, 225);
+            this.gvCustomer.Location = new System.Drawing.Point(0, 348);
+            this.gvCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gvCustomer.Name = "gvCustomer";
             this.gvCustomer.ReadOnly = true;
             this.gvCustomer.RowHeadersVisible = false;
+            this.gvCustomer.RowHeadersWidth = 51;
             this.gvCustomer.RowTemplate.Height = 35;
             this.gvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvCustomer.Size = new System.Drawing.Size(936, 355);
+            this.gvCustomer.Size = new System.Drawing.Size(1248, 366);
             this.gvCustomer.TabIndex = 2;
             this.gvCustomer.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gvCustomer.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -396,15 +414,82 @@
             this.gvCustomer.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.gvCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCustomer_CellClick);
             // 
+            // radAdmin
+            // 
+            this.radAdmin.Animated = true;
+            this.radAdmin.AutoSize = true;
+            this.radAdmin.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(153)))), ((int)(((byte)(149)))));
+            this.radAdmin.CheckedState.BorderThickness = 0;
+            this.radAdmin.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(153)))), ((int)(((byte)(149)))));
+            this.radAdmin.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radAdmin.CheckedState.InnerOffset = -4;
+            this.radAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radAdmin.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.radAdmin.ForeColor = System.Drawing.Color.White;
+            this.radAdmin.Location = new System.Drawing.Point(930, 203);
+            this.radAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.radAdmin.Name = "radAdmin";
+            this.radAdmin.Size = new System.Drawing.Size(157, 32);
+            this.radAdmin.TabIndex = 16;
+            this.radAdmin.Tag = "";
+            this.radAdmin.Text = "Doanh nghiệp";
+            this.radAdmin.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radAdmin.UncheckedState.BorderThickness = 2;
+            this.radAdmin.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radAdmin.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radAdmin.CheckedChanged += new System.EventHandler(this.radAdmin_CheckedChanged);
+            // 
+            // radEmployee
+            // 
+            this.radEmployee.Animated = true;
+            this.radEmployee.AutoSize = true;
+            this.radEmployee.Checked = true;
+            this.radEmployee.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(153)))), ((int)(((byte)(149)))));
+            this.radEmployee.CheckedState.BorderThickness = 0;
+            this.radEmployee.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(153)))), ((int)(((byte)(149)))));
+            this.radEmployee.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radEmployee.CheckedState.InnerOffset = -4;
+            this.radEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radEmployee.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.radEmployee.ForeColor = System.Drawing.Color.White;
+            this.radEmployee.Location = new System.Drawing.Point(803, 203);
+            this.radEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.radEmployee.Name = "radEmployee";
+            this.radEmployee.Size = new System.Drawing.Size(103, 32);
+            this.radEmployee.TabIndex = 14;
+            this.radEmployee.TabStop = true;
+            this.radEmployee.Tag = "";
+            this.radEmployee.Text = "Cá nhân";
+            this.radEmployee.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radEmployee.UncheckedState.BorderThickness = 2;
+            this.radEmployee.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radEmployee.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radEmployee.CheckedChanged += new System.EventHandler(this.radEmployee_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(607, 203);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(157, 28);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Loại khách hàng:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // frmCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 580);
+            this.ClientSize = new System.Drawing.Size(1248, 714);
             this.Controls.Add(this.gvCustomer);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmCustomer";
             this.Text = "Khách hàng";
             this.Load += new System.EventHandler(this.frmCustomer_Load);
@@ -432,5 +517,8 @@
         private Guna.UI2.WinForms.Guna2DataGridView gvCustomer;
         private Guna.UI2.WinForms.Guna2TextBox txtId;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2RadioButton radAdmin;
+        private Guna.UI2.WinForms.Guna2RadioButton radEmployee;
+        private System.Windows.Forms.Label label5;
     }
 }

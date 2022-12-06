@@ -161,5 +161,25 @@ namespace GUI
         {
             SetValue(true, false);
         }
+
+        private void radAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radEmployee_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
