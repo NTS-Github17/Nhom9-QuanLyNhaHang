@@ -22,13 +22,13 @@ namespace GUI
 
         private void SetValue(bool param, bool isLoad)
         {
-            txtId.Text = null;
-
-            txtName.Text = null;
-            txtQuantity.Text = null;
-            txtUnitPrice.Text = null;
-            txtImportUnitPrice.Text = null;
-            txtNote.Text = null;
+            txtMaSp.Text = null;
+            txtTenSP.Text = null;
+            txtDonViTinh.Text = null;
+            txtGiaBan.Text = null;
+            txtDonGia.Text = null;
+            txtChiecKhau.Text = null;
+            txtVAT.Text = null;
             btnInsert.Enabled = param;
             pcbProduct.Image = null;
             if (isLoad)
@@ -115,14 +115,14 @@ namespace GUI
             gvProduct.DataSource = busProduct.ListOfProducts();
             LoadGridView();
             SetValue(true, false);
-            txtName.Focus();
+            txtTenSP.Focus();
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (!CheckIsNummber(txtQuantity.Text) || !CheckIsNummber(txtUnitPrice.Text) || !CheckIsNummber(txtImportUnitPrice.Text))
+            if (!CheckIsNummber(txtDonViTinh.Text) || !CheckIsNummber(txtGiaBan.Text) || !CheckIsNummber(txtDonGia.Text))
                 MsgBox("Vui lòng nhập chữ số!", true);
-            else if (txtName.Text == "")
+            else if (txtTenSP.Text == "")
                 MsgBox("Thiếu trường thông tin!", true);
             else if (pcbProduct.Image == null)
                 MsgBox("Vui lòng chọn hình!", true);
@@ -130,12 +130,11 @@ namespace GUI
             {
                 dtoProduct = new DTO_Product
                 (
-                    txtName.Text,
-                    int.Parse(txtQuantity.Text),
-                    int.Parse(txtImportUnitPrice.Text),
-                    int.Parse(txtUnitPrice.Text),
-                    ImageToByteArray(pcbProduct), 
-                    txtNote.Text
+                    txtTenSP.Text,
+                    int.Parse(txtDonViTinh.Text),
+                    int.Parse(txtDonGia.Text),
+                    int.Parse(txtGiaBan.Text),
+                    ImageToByteArray(pcbProduct)                
                 );
                 if (busProduct.InsertProduct(dtoProduct))
                 {
@@ -162,16 +161,16 @@ namespace GUI
                 btnUpdate.Enabled = true;
                 btnDelete.Enabled = true;
 
-                txtId.ReadOnly = true;
-                txtId.Text = gvProduct.CurrentRow.Cells[0].Value.ToString();
-                txtName.Text = gvProduct.CurrentRow.Cells[1].Value.ToString();
-                txtQuantity.Text = gvProduct.CurrentRow.Cells[2].Value.ToString();
-                txtImportUnitPrice.Text = gvProduct.CurrentRow.Cells[3].Value.ToString();
-                txtUnitPrice.Text = gvProduct.CurrentRow.Cells[4].Value.ToString();
+                txtMaSp.ReadOnly = true;
+                txtMaSp.Text = gvProduct.CurrentRow.Cells[0].Value.ToString();
+                txtTenSP.Text = gvProduct.CurrentRow.Cells[1].Value.ToString();
+                txtDonViTinh.Text = gvProduct.CurrentRow.Cells[2].Value.ToString();
+                txtDonGia.Text = gvProduct.CurrentRow.Cells[3].Value.ToString();
+                txtGiaBan.Text = gvProduct.CurrentRow.Cells[4].Value.ToString();
                 
                 MemoryStream memoryStream = new MemoryStream((byte[])gvProduct.CurrentRow.Cells[5].Value);
                 pcbProduct.Image = Image.FromStream(memoryStream);
-                txtNote.Text = gvProduct.CurrentRow.Cells[6].Value.ToString();
+                
             }
         }
 
@@ -179,9 +178,9 @@ namespace GUI
         {
             if (MessageBox.Show("Bạn có chắc muốn sửa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (!CheckIsNummber(txtQuantity.Text) || !CheckIsNummber(txtUnitPrice.Text) || !CheckIsNummber(txtImportUnitPrice.Text))
+                if (!CheckIsNummber(txtDonViTinh.Text) || !CheckIsNummber(txtGiaBan.Text) || !CheckIsNummber(txtDonGia.Text))
                     MsgBox("Vui lòng nhập chữ số!", true);
-                else if (txtName.Text == "")
+                else if (txtTenSP.Text == "")
                     MsgBox("Thiếu trường thông tin!", true);
                 else if (pcbProduct.Image == null)
                     MsgBox("Vui lòng chọn hình!", true);
@@ -189,14 +188,14 @@ namespace GUI
                 {
                     dtoProduct = new DTO_Product
                     (
-                        int.Parse(txtId.Text),
-                        txtName.Text,
-                        int.Parse(txtQuantity.Text),
-                        int.Parse(txtImportUnitPrice.Text),
-                        int.Parse(txtUnitPrice.Text),
+                        int.Parse(txtMaSp.Text),
+                        txtTenSP.Text,
+                        int.Parse(txtDonViTinh.Text),
+                        int.Parse(txtDonGia.Text),
+                        int.Parse(txtGiaBan.Text),
                         ImageToByteArray(pcbProduct),
-                        txtNote.Text
-                    );
+
+                    ) ;
                     if (busProduct.UpdateProduct(dtoProduct))
                     {
                         gvProduct.DataSource = busProduct.ListOfProducts();
@@ -215,7 +214,7 @@ namespace GUI
         {
             if (MessageBox.Show("Bạn có chắc muốn xóa không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (busProduct.DeleteProduct(int.Parse(txtId.Text)))
+                if (busProduct.DeleteProduct(int.Parse(txtMaSp.Text)))
                 {
                     gvProduct.DataSource = busProduct.ListOfProducts();
                     LoadGridView();
@@ -244,6 +243,36 @@ namespace GUI
                 DataTable data = busProduct.SearchProduct(txtSearch.Text);
                 gvProduct.DataSource = data;
             }
+        }
+
+        private void gvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pcbProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtGiaBan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtVAT_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
